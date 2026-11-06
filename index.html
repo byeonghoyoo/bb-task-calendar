@@ -4,22 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive">
-<title>마케팅팀 업무 캘린더 보고</title>
+<title>마케팅팀 업무 캘린더 1차 보고</title>
 <style>
   :root { color-scheme: dark; --bg: #191919; --panel: #202020; --line: #303030; --text: #ececec; --muted: #a0a0a0; --accent: #6c7cff; }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif; line-height: 1.6; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif; line-height: 1.6; overflow-wrap: anywhere; }
   .wrap { max-width: 1440px; margin: 0 auto; padding: 32px 20px 64px; }
   h1 { font-size: 26px; margin: 0 0 2px; letter-spacing: -0.01em; }
   .asof { color: var(--muted); font-size: 14px; margin: 0 0 22px; }
-  .gate { max-width: 360px; margin: 16vh auto 0; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 28px; }
-  .gate h1 { font-size: 20px; }
-  .gate p { color: var(--muted); font-size: 14px; margin: 6px 0 18px; }
-  .gate input { width: 100%; padding: 12px; font-size: 16px; border-radius: 8px; border: 1px solid #474747; background: #141414; color: var(--text); }
-  .gate button { margin-top: 12px; width: 100%; padding: 12px; font-size: 16px; border: 0; border-radius: 8px; background: var(--accent); color: #fff; cursor: pointer; }
-  .gate button:disabled { opacity: .6; cursor: wait; }
-  .err { color: #ff8a80; font-size: 14px; min-height: 20px; margin-top: 10px; }
-  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; margin-bottom: 34px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-bottom: 34px; }
   .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
   .card h2 { font-size: 15px; margin: 0 0 8px; color: #d6d6d6; }
   .card ul, .card ol { margin: 0; padding-left: 18px; font-size: 14.5px; }
@@ -34,100 +27,52 @@
   .caption { color: #d0d0d0; font-size: 15px; font-weight: 600; }
   .bar a { color: #a9b6ff; font-size: 13px; }
   .shot { width: 100%; display: block; border: 1px solid var(--line); border-radius: 10px; background: #111; }
-  .loading { color: var(--muted); font-size: 14px; padding: 40px 0; text-align: center; border: 1px dashed var(--line); border-radius: 10px; }
   section + section { margin-top: 40px; }
 </style>
 </head>
 <body>
-<div id="gate" class="gate">
-  <h1>마케팅팀 업무 캘린더</h1>
-  <p>보고용 페이지입니다. 비밀번호를 입력해 주세요.</p>
-  <form id="f">
-    <input id="pw" type="password" autocomplete="current-password" placeholder="비밀번호" autofocus>
-    <button id="go" type="submit">열기</button>
-  </form>
-  <div id="err" class="err"></div>
-</div>
-<div id="app" class="wrap" hidden></div>
+  <div class="wrap">
+    <h1>마케팅팀 업무 캘린더 1차 보고</h1>
+    <p class="asof">2026년 11월 6일 기준</p>
+    <div class="cards">
+      <div class="card"><h2>요약</h2><ul><li>팀 업무 시트(2026_BBS_MKT_Task_Log_Nov&amp;Dec)의 11월 업무 455건(팀원 10명)을 노션형 업무 캘린더로 옮겼습니다.</li><li>'전체' 탭에서는 팀 전체 일정을, 이름 탭에서는 팀원별 일정을 볼 수 있습니다.</li><li>업무가 많은 날은 하루 3건까지 보이고, 'N more'를 누르면 그 주 업무가 모두 펼쳐집니다.</li></ul></div>
+      <div class="card"><h2>현재 상태</h2><ul><li>지금 화면은 11월 6일 업무 시트를 옮긴 시험본입니다.</li><li>업무 시트와의 양방향 자동 동기화(5분 주기)는 서버를 올린 뒤 연결합니다. 연결하면 시트와 캘린더 중 어느 쪽에서 고쳐도 양쪽에 반영되도록 만들 예정입니다.</li><li>노션과 화면이 비슷한 오픈소스 도구(Litpage, MIT 라이선스)를 직접 설치해 쓰는 방식이라, 인원수에 따른 구독료 없이 서버 비용만 듭니다.</li></ul></div>
+      <div class="card"><h2>다음 단계</h2><ol><li>서버 배포 (PC를 꺼도 동작)</li><li>업무 시트 양방향 동기화 연결</li><li>팀원별 계정 발급</li><li>달력 화면 한국어 적용, 모바일 화면, 바로가기 모음 등 추가 기능</li></ol></div>
+    </div>
+    <section>
+      <h3>업무 캘린더 화면</h3>
+      <p class="note">탭을 누르면 해당 팀원의 11월 일정이 보입니다.</p>
+      <div class="tabs" role="tablist">
+        <button type="button" class="tab" role="tab" aria-selected="true" data-i="0">전체</button>
+        <button type="button" class="tab" role="tab" aria-selected="false" data-i="1">최윤정</button>
+        <button type="button" class="tab" role="tab" aria-selected="false" data-i="2">임이천</button>
+        <button type="button" class="tab" role="tab" aria-selected="false" data-i="3">양지의</button>
+        <button type="button" class="tab" role="tab" aria-selected="false" data-i="4">임자헌</button>
+        <button type="button" class="tab" role="tab" aria-selected="false" data-i="5">마유</button>
+        <button type="button" class="tab" role="tab" aria-selected="false" data-i="6">천이판</button>
+        <button type="button" class="tab" role="tab" aria-selected="false" data-i="7">피비</button>
+        <button type="button" class="tab" role="tab" aria-selected="false" data-i="8">메이</button>
+        <button type="button" class="tab" role="tab" aria-selected="false" data-i="9">유병호</button>
+        <button type="button" class="tab" role="tab" aria-selected="false" data-i="10">유재윤</button>
+      </div>
+      <div class="bar"><span class="caption" id="cap">팀 전체 · 11월 업무 455건</span><a id="big" href="img/00.jpg" target="_blank" rel="noopener">크게 보기</a></div>
+      <img id="shot" class="shot" src="img/00.jpg" alt="팀 전체 · 11월 업무 455건">
+    </section>
+    <section>
+      <h3>업무가 많은 날 펼쳐 보기</h3>
+      <div class="bar"><span class="note">'N more'를 누르면 그 주 업무가 모두 펼쳐집니다. (유병호, 11월 첫 주)</span><a href="img/ex.jpg" target="_blank" rel="noopener">크게 보기</a></div>
+      <img class="shot" src="img/ex.jpg" alt="'N more'를 누르면 그 주 업무가 모두 펼쳐집니다. (유병호, 11월 첫 주)" loading="lazy">
+    </section>
+  </div>
 <script>
-const SALT = "LaAZSIJ1gqrK6uVi7OISaQ==", ITER = 310000, CONTENT = "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";
-const b64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
-let KEY = null, DATA = null;
-const cache = {};
-async function keyFrom(pw) {
-  const km = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
-  return crypto.subtle.deriveKey({ name: 'PBKDF2', salt: b64(SALT), iterations: ITER, hash: 'SHA-256' }, km, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
-}
-async function dec(key, bytes) { return new Uint8Array(await crypto.subtle.decrypt({ name: 'AES-GCM', iv: bytes.slice(0, 12) }, key, bytes.slice(12))); }
-async function unlock(pw) {
-  const k = await keyFrom(pw);
-  const plain = await dec(k, b64(CONTENT));
-  KEY = k; DATA = JSON.parse(new TextDecoder().decode(plain));
-}
-async function imgUrl(path) {
-  if (cache[path]) return cache[path];
-  const r = await fetch(path, { cache: 'no-cache' });
-  if (!r.ok) throw new Error('load ' + r.status);
-  const u = URL.createObjectURL(new Blob([await dec(KEY, new Uint8Array(await r.arrayBuffer()))], { type: 'image/jpeg' }));
-  cache[path] = u; return u;
-}
-function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
-async function fillShot(holder, link, path, alt) {
-  holder.replaceChildren(el('div', 'loading', '불러오는 중…'));
-  try {
-    const u = await imgUrl(path);
-    const img = el('img', 'shot'); img.src = u; img.alt = alt;
-    holder.replaceChildren(img); link.href = u; link.hidden = false;
-  } catch (e) { holder.replaceChildren(el('div', 'loading', '이미지를 불러오지 못했습니다. 새로고침해 주세요.')); }
-}
-function render() {
-  const app = document.getElementById('app');
-  app.append(el('h1', '', DATA.title), el('p', 'asof', DATA.asOf));
-  const cards = el('div', 'cards');
-  for (const c of DATA.cards) {
-    const card = el('div', 'card'); card.append(el('h2', '', c.h));
-    const list = el(c.type === 'ol' ? 'ol' : 'ul');
-    for (const it of c.items) list.append(el('li', '', it));
-    card.append(list); cards.append(card);
-  }
-  app.append(cards);
-  const sec = el('section'); sec.append(el('h3', '', DATA.sectionTitle), el('p', 'note', DATA.sectionNote));
-  const tabs = el('div', 'tabs'); tabs.setAttribute('role', 'tablist');
-  const bar = el('div', 'bar'); const cap = el('span', 'caption'); const open = el('a', '', '크게 보기'); open.target = '_blank'; open.rel = 'noopener'; open.hidden = true; bar.append(cap, open);
-  const holder = el('div');
-  DATA.tabs.forEach((t, i) => {
-    const b = el('button', 'tab', t.name); b.type = 'button'; b.setAttribute('role', 'tab'); b.setAttribute('aria-selected', 'false');
-    b.addEventListener('click', () => show(i)); tabs.append(b);
-  });
-  sec.append(tabs, bar, holder); app.append(sec);
-  function show(i) {
-    [...tabs.children].forEach((b, j) => b.setAttribute('aria-selected', String(i === j)));
-    cap.textContent = DATA.tabs[i].caption; open.hidden = true;
-    fillShot(holder, open, DATA.tabs[i].img, DATA.tabs[i].caption);
-  }
-  show(0);
-  if (DATA.example) {
-    const ex = el('section'); ex.append(el('h3', '', DATA.example.title));
-    const exBar = el('div', 'bar'); const exCap = el('span', 'note', DATA.example.caption); const exOpen = el('a', '', '크게 보기'); exOpen.target = '_blank'; exOpen.rel = 'noopener'; exOpen.hidden = true; exBar.append(exCap, exOpen);
-    const exHolder = el('div'); ex.append(exBar, exHolder); app.append(ex);
-    fillShot(exHolder, exOpen, DATA.example.img, DATA.example.caption);
-  }
-  (async () => { for (const t of DATA.tabs) { try { await imgUrl(t.img); } catch (e) {} } })();
-}
-async function start(pw, silent) {
-  const btn = document.getElementById('go'), err = document.getElementById('err');
-  btn.disabled = true; if (!silent) err.textContent = '';
-  try {
-    await unlock(pw);
-    try { sessionStorage.setItem('bbs-report-pw', pw); } catch (e) {}
-    document.getElementById('gate').hidden = true; document.getElementById('app').hidden = false; render();
-  } catch (e) {
-    if (!silent) err.textContent = '비밀번호가 맞지 않습니다.';
-    try { sessionStorage.removeItem('bbs-report-pw'); } catch (e2) {}
-  } finally { btn.disabled = false; }
-}
-document.getElementById('f').addEventListener('submit', (e) => { e.preventDefault(); const v = document.getElementById('pw').value.trim(); if (v) start(v, false); });
-try { const saved = sessionStorage.getItem('bbs-report-pw'); if (saved) start(saved, true); } catch (e) {}
+  const TABS = [{"c":"팀 전체 · 11월 업무 455건","s":"img/00.jpg"},{"c":"최윤정 · 11월 업무 59건","s":"img/01.jpg"},{"c":"임이천 · 11월 업무 28건","s":"img/02.jpg"},{"c":"양지의 · 11월 업무 57건","s":"img/03.jpg"},{"c":"임자헌 · 11월 업무 24건","s":"img/04.jpg"},{"c":"마유 · 11월 업무 24건","s":"img/05.jpg"},{"c":"천이판 · 11월 업무 45건","s":"img/06.jpg"},{"c":"피비 · 11월 업무 51건","s":"img/07.jpg"},{"c":"메이 · 11월 업무 60건","s":"img/08.jpg"},{"c":"유병호 · 11월 업무 66건","s":"img/09.jpg"},{"c":"유재윤 · 11월 업무 41건","s":"img/10.jpg"}];
+  const btns = [...document.querySelectorAll('.tab')], shot = document.getElementById('shot'), cap = document.getElementById('cap'), big = document.getElementById('big');
+  btns.forEach((b) => b.addEventListener('click', () => {
+    const i = Number(b.dataset.i);
+    btns.forEach((x, j) => x.setAttribute('aria-selected', String(i === j)));
+    shot.src = TABS[i].s; shot.alt = TABS[i].c; cap.textContent = TABS[i].c; big.href = TABS[i].s;
+  }));
+  window.addEventListener('load', () => TABS.slice(1).forEach((t) => { const im = new Image(); im.src = t.s; }));
 </script>
 </body>
 </html>
